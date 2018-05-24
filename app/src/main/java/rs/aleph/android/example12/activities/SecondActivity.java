@@ -7,10 +7,22 @@ import android.provider.MediaStore;
 import android.view.View;
 import android.widget.Toast;
 
+
+import java.util.ArrayList;
+
+import Model.Jelo;
 import rs.aleph.android.example12.R;
 
 // Each activity extends Activity class
 public class SecondActivity extends Activity {
+
+    private int position = 0;
+
+    ArrayList<Jelo> jela = new ArrayList<Jelo>();
+
+    private Jelo[] jelaNiz = new Jelo[] {
+         //   new Jelo(0, "cevapi.jpg", "Cevapi", "Jelo sa rostilja", k1, s1, )
+    }
 
     // onCreate method is a lifecycle method called when he activity is starting
     @Override

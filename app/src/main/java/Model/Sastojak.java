@@ -1,9 +1,13 @@
 package Model;
 
+import java.util.ArrayList;
+
 public class Sastojak {
 
     private int id;
     private String naziv;
+
+
 
 
     public Sastojak() {

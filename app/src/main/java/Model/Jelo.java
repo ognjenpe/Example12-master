@@ -1,20 +1,25 @@
 package Model;
 
+
+import java.util.ArrayList;
+import java.util.List;
+
 public class Jelo {
 
     private int id;
     private String slika;
     private String naziv;
     private String opis;
-    private String kategorija;
-    private String sastojak;
+    private Kategorija kategorija;
+    private Sastojak sastojak;
     private int kalorijska_vrednost;
     private double cena;
+    private List<Sastojak> sastojci = new ArrayList<Sastojak>();
 
     public Jelo() {
     }
 
-    public Jelo(int id, String slika, String naziv, String opis, String kategorija, String sastojak, int kalorijska_vrednost, double cena) {
+    public Jelo(int id, String slika, String naziv, String opis, Kategorija kategorija, Sastojak sastojak, int kalorijska_vrednost, double cena) {
         this.id = id;
         this.slika = slika;
         this.naziv = naziv;
@@ -57,19 +62,19 @@ public class Jelo {
         this.opis = opis;
     }
 
-    public String getKategorija() {
+    public Kategorija getKategorija() {
         return kategorija;
     }
 
-    public void setKategorija(String kategorija) {
+    public void setKategorija(Kategorija kategorija) {
         this.kategorija = kategorija;
     }
 
-    public String getSastojak() {
+    public Sastojak getSastojak() {
         return sastojak;
     }
 
-    public void setSastojak(String sastojak) {
+    public void setSastojak(Sastojak sastojak) {
         this.sastojak = sastojak;
     }
 
@@ -89,6 +94,14 @@ public class Jelo {
         this.cena = cena;
     }
 
+    public void addSastojak(Sastojak sastojak){
+        sastojci.add(sastojak);
+    }
+
+    public void removeSastojak(Sastojak sastojak){
+        sastojci.remove(sastojak);
+    }
+
     @Override
     public String toString() {
         return "Jelo{" +
@@ -96,8 +109,8 @@ public class Jelo {
                 ", slika='" + slika + '\'' +
                 ", naziv='" + naziv + '\'' +
                 ", opis='" + opis + '\'' +
-                ", kategorija='" + kategorija + '\'' +
-                ", sastojak='" + sastojak + '\'' +
+                ", kategorija=" + kategorija +
+                ", sastojak=" + sastojak +
                 ", kalorijska_vrednost=" + kalorijska_vrednost +
                 ", cena=" + cena +
                 '}';

@@ -1,9 +1,12 @@
 package Model;
 
+import java.util.ArrayList;
+
 public class Kategorija {
 
     private int id;
     private String naziv;
+    private ArrayList<Jelo> jela = new ArrayList<Jelo>();
 
     public Kategorija() {
     }
@@ -27,6 +30,13 @@ public class Kategorija {
 
     public void setNaziv(String naziv) {
         this.naziv = naziv;
+    }
+    public void addJelo(Jelo jelo){
+        jela.add(jelo);
+    }
+
+    public void removeJelo(Jelo jelo){
+        jela.remove(jelo);
     }
 
     @Override
