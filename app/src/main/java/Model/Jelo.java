@@ -102,6 +102,8 @@ public class Jelo {
         sastojci.remove(sastojak);
     }
 
+
+
     @Override
     public String toString() {
         return "Jelo{" +

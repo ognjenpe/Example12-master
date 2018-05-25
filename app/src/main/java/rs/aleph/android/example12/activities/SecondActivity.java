@@ -11,6 +11,8 @@ import android.widget.Toast;
 import java.util.ArrayList;
 
 import Model.Jelo;
+import Model.Kategorija;
+import Model.Sastojak;
 import rs.aleph.android.example12.R;
 
 // Each activity extends Activity class
@@ -20,9 +22,14 @@ public class SecondActivity extends Activity {
 
     ArrayList<Jelo> jela = new ArrayList<Jelo>();
 
-    private Jelo[] jelaNiz = new Jelo[] {
-         //   new Jelo(0, "cevapi.jpg", "Cevapi", "Jelo sa rostilja", k1, s1, )
-    }
+    Jelo j1 = new Jelo();
+    Kategorija k1 = new Kategorija();
+    Sastojak s1 = new Sastojak();
+
+
+    private Jelo[] jelaNiz = new Jelo[]{
+            new Jelo(0, "cevapi.jpg", "Cevapi", "Jelo sa rostilja", k1, s1, 1000, 700)
+    };
 
     // onCreate method is a lifecycle method called when he activity is starting
     @Override
@@ -36,6 +43,14 @@ public class SecondActivity extends Activity {
         // Shows a toast message (a pop-up message)
         Toast toast = Toast.makeText(getBaseContext(), "SecondActivity.onCreate()", Toast.LENGTH_SHORT);
         toast.show();
+
+
+        j1.setKategorija(k1);
+        k1.addJelo(j1);
+        j1.setSastojak(s1);
+
+
+
     }
 
     // onStart method is a lifecycle method called after onCreate (or after onRestart when the

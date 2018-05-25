@@ -10,6 +10,7 @@ public class Sastojak {
 
 
 
+
     public Sastojak() {
     }
 
@@ -33,6 +34,8 @@ public class Sastojak {
     public void setNaziv(String naziv) {
         this.naziv = naziv;
     }
+
+
 
     @Override
     public String toString() {
