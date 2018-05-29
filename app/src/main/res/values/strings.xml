@@ -10,6 +10,8 @@
     <string name="select_contact">Select Contact</string>
     <string name="start_third_activity">Start Third Activity</string>
     <string name="start_camera">Start Camera</string>
+    <string name="button_buy">Buy</string>
+
 
 
 </resources>
