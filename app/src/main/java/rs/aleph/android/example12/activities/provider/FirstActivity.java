@@ -1,4 +1,4 @@
-package rs.aleph.android.example12.activities;
+package rs.aleph.android.example12.activities.provider;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -6,11 +6,15 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.provider.ContactsContract;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
 import android.widget.Toast;
 
-import rs.aleph.android.example12.R;
+import java.util.List;
 
-// Each activity extends Activity class
+import rs.aleph.android.example12.R;
+//Each activity extends Activity class
 public class FirstActivity extends Activity {
 
 	static final int PICK_CONTACT_REQUEST = 0;  // The request code
@@ -42,6 +46,23 @@ public class FirstActivity extends Activity {
 		// Shows a toast message (a pop-up message)
 		Toast toast = Toast.makeText(getBaseContext(), "FirstActivity.onCreate()", Toast.LENGTH_SHORT);
 		toast.show();
+
+		final List<String> jeloImena = JeloProvider.getJeloImena();
+
+		ArrayAdapter<String> dataAdapter = new ArrayAdapter<String>(this, R.layout.list_item, jeloImena);
+		ListView listView = (ListView) findViewById(R.id.listofJela);
+
+		// Assigns ArrayAdaptar to ListView
+		listView.setAdapter(dataAdapter);
+
+		// Starts the SecondActivity and sends it the selected URL as an extra data
+		listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+			public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+				Intent intent = new Intent(FirstActivity.this, SecondActivity.class);
+				intent.putExtra("position", position);
+				startActivity(intent);
+			}
+		});
 	}
 
 	// onStart method is a lifecycle method called after onCreate (or after onRestart when the
@@ -59,14 +80,14 @@ public class FirstActivity extends Activity {
 	// onRestart method is a lifecycle method called after onStop when the current activity is
 	// being re-displayed to the user
 	@Override
-    protected void onRestart() {
+	protected void onRestart() {
 
 		super.onRestart();
 
 		// Shows a toast message (a pop-up message)
 		Toast toast = Toast.makeText(getBaseContext(), "FirstActivity.onRestart()", Toast.LENGTH_SHORT);
 		toast.show();
-    }
+	}
 
 	// onResume method is a lifecycle method called after onRestoreInstanceState, onRestart, or
 	// onPause, for your activity to start interacting with the user
@@ -132,22 +153,22 @@ public class FirstActivity extends Activity {
 	// Called when btnStart button is clicked
 	public void btnStartActivityClicked(View view) {
 		// This is an explicit intent (class property is specified)
-        Intent intent = new Intent(FirstActivity.this, SecondActivity.class);
+		Intent intent = new Intent(FirstActivity.this, SecondActivity.class);
 		// startActivity method starts an activity
-        startActivity(intent);
+		startActivity(intent);
 	}
 
 	// Called when btnSelectContact button is clicked
-    public void btnSelectContactClicked(View view) {
+	public void btnSelectContactClicked(View view) {
 		// This is an implicit intent
-        Intent intent = new Intent(Intent.ACTION_PICK, Uri.parse("content://contacts"));
+		Intent intent = new Intent(Intent.ACTION_PICK, Uri.parse("content://contacts"));
 		// Show user only contacts w/ phone numbers
 		intent.setType(ContactsContract.CommonDataKinds.Phone.CONTENT_TYPE);
 		// startActivity method starts an activity
 		startActivityForResult(intent, PICK_CONTACT_REQUEST);
-    }
+	}
 
-    // Called when an activity you launched exits, giving you the requestCode you started it with, the resultCode it returned, and any additional data from it.
+	// Called when an activity you launched exits, giving you the requestCode you started it with, the resultCode it returned, and any additional data from it.
 	@Override
 	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
 		// Check which request it is that we're responding to
@@ -157,9 +178,9 @@ public class FirstActivity extends Activity {
 				// Get the URI that points to the selected contact
 				Uri contactUri = data.getData();
 
-                // Shows contact URI
-                Toast.makeText(this, "Contact URI: " + contactUri, Toast.LENGTH_SHORT).show();
-            }
+				// Shows contact URI
+				Toast.makeText(this, "Contact URI: " + contactUri, Toast.LENGTH_SHORT).show();
+			}
 		}
 	}
 }

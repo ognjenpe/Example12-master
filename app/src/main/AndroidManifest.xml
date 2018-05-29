@@ -3,20 +3,22 @@
 <!-- In principle, each app should have unique package -->
 <manifest xmlns:android="http://schemas.android.com/apk/res/android" package="rs.aleph.android.example12">
 
-    <uses-permission android:name="android.permission.INTERNET"/>
-    <uses-permission android:name="android.permission.CAMERA"/>
+
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.CAMERA" />
+
 
     <application
         android:allowBackup="true"
         android:label="@string/activities"
-        android:theme="@style/Theme.AppCompat.Light"
-        android:icon="@mipmap/ic_launcher"
-        android:drawableLeft="@drawable/splash">
+        android:icon="@mipmap/ic_launcher">
 
         <!-- Declares 1st (main) activity. Action "MAIN" and category "LAUNCHER" properties makes it visible in the application launcher -->
         <activity
-            android:name="rs.aleph.android.example12.activities.FirstActivity"
-            android:label="@string/first_activity">
+            android:name="rs.aleph.android.example12.activities.provider.FirstActivity"
+            android:label="@string/first_activity"
+            android:icon="@mipmap/ic_launcher">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
@@ -25,8 +27,9 @@
 
         <!-- Declares 2nd activity -->
         <activity
-            android:name=".activities.SecondActivity"
-            android:label="@string/second_activity">
+            android:name=".activities.provider.SecondActivity"
+            android:label="@string/second_activity"
+            android:icon="@mipmap/ic_launcher">
         </activity>
 
 
