@@ -6,7 +6,6 @@
 
 
     <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.CAMERA" />
 
 
     <application
@@ -25,12 +24,7 @@
             </intent-filter>
         </activity>
 
-        <!-- Declares 2nd activity -->
-        <activity
-            android:name=".activities.provider.SecondActivity"
-            android:label="@string/second_activity"
-            android:icon="@mipmap/ic_launcher">
-        </activity>
+
 
 
     </application>

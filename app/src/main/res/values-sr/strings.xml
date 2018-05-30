@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
+    <string name="app_name">Fragmenti</string>
     <string name="activities">Aktivnost</string>
     <string name="first_activity">Prva Aktivnost</string>
     <string name="second_activity">Druga Aktivnost</string>

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-
+    <string name="app_name">Fragments</string>
     <string name="activities">Activities</string>
     <string name="first_activity">First Activity</string>
     <string name="second_activity">Second Activity</string>
